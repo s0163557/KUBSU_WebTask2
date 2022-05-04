@@ -199,15 +199,15 @@ else {
     exit();
   }
 
-  try{
-//Объединяет элементы массива в строку
-$sup= implode(', ', (array)$_POST['superpower']);
-
 $DBlog = 'u41797';
 $DBpas = '6849699';
 
 //Представляет собой соединение между PHP и сервером базы данных.
 $conn = new PDO("mysql:host=localhost;dbname=u41797", $DBlog, $DBpas, array(PDO::ATTR_PERSISTENT => true));
+
+  try{
+//Объединяет элементы массива в строку
+$sup= implode(', ', (array)$_POST['superpower']);
 
 //Подготавливает инструкцию к выполнению и возвращает объект инструкции
 $user = $conn->prepare("INSERT INTO form SET name = ?, email = ?, dob = ?, gender = ?, limbs = ?, bio = ?, che = ?");
