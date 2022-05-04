@@ -86,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $values['limbs'] = empty($_COOKIE['limbs_value']) ? '' : $_COOKIE['limbs_value'];
   $values['check'] = empty($_COOKIE['check_value']) ? '' : $_COOKIE['check_value'];
   $values['bio'] = empty($_COOKIE['bio_value']) ? '' : $_COOKIE['bio_value'];
-  $values['id_user'] = empty($_COOKIE['id_value']) ? '' : $_COOKIE['id_value'];
 
   $values['album'] = array();
   $values['album']['1'] = empty($_COOKIE['album1_value']) ? '' : $_COOKIE['album1_value'];
@@ -210,7 +209,6 @@ $user = $conn->prepare("INSERT INTO form SET name = ?, email = ?, dob = ?, gende
 //Запускает подготовленный запрос на выполнение
 $user -> execute(array($_POST['field-name'], $_POST['field-email'], date('Y-m-d', strtotime($_POST['field-date'])), $_POST['radio-gender'], $_POST['radio-limb'], $_POST['BIO'], $_POST['ch']));
 $id_user = $conn->lastInsertId();
-setcookie('id_value', $id_user, time() + 30 * 24 * 60 * 60);
       
 $user1 = $conn->prepare("INSERT INTO album SET id = ?, super_name = ?");
 $user1 -> execute([$id_user, $sup]);
