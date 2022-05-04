@@ -17,7 +17,7 @@ if (!empty($messages)) {
   foreach ($messages as $message) {
     print($message);
   }
-  print "Пользватель добавлен в базу под номером $id_user";
+  print "Пользватель добавлен в базу под номером $values['id_user']";
   print('</div>');
 }
 
