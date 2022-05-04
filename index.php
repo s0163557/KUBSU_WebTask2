@@ -225,3 +225,4 @@ $user1 -> execute([$id_user, $sup]);
     include('form.php');
     exit();
   }
+?>
