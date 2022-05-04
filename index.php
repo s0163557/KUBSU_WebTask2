@@ -213,7 +213,7 @@ $sup= implode(', ', (array)$_POST['superpower']);
 $user = $conn->prepare("INSERT INTO form SET name = ?, email = ?, dob = ?, gender = ?, limbs = ?, bio = ?, che = ?");
 
 //Запускает подготовленный запрос на выполнение
-$user -> execute([$_POST['field-name'], $_POST['field-email'], date('Y-m-d', strtotime($_POST['field-date'])), $_POST['radio-gender'], $_POST['radio-limb'], $_POST['BIO'], $_POST['ch']]);
+$user -> execute(array($_POST['field-name'], $_POST['field-email'], date('Y-m-d', strtotime($_POST['field-date'])), $_POST['radio-gender'], $_POST['radio-limb'], $_POST['BIO'], $_POST['ch']));
 $id_user = $conn->lastInsertId();
 
 $user1 = $conn->prepare("INSERT INTO album SET id = ?, super_name = ?");
