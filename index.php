@@ -192,14 +192,8 @@ else {
       setcookie('album_error', '', 100000);
       setcookie('check_error', '', 100000);
     }
-
-    // Сохраняем куку с признаком успешного сохранения.
-    setcookie('save', '1');
-    header('Location: index.php');
-    exit();
-  }
-
-$DBlog = 'u41797';
+    
+    $DBlog = 'u41797';
 $DBpas = '6849699';
 
 //Представляет собой соединение между PHP и сервером базы данных.
@@ -223,6 +217,12 @@ $user1 -> execute([$id_user, $sup]);
   catch(PDOException $e){
     print( 'Error : ' . $e->getMessage());
     include('form.php');
+    exit();
+  }
+
+    // Сохраняем куку с признаком успешного сохранения.
+    setcookie('save', '1');
+    header('Location: index.php');
     exit();
   }
 ?>
